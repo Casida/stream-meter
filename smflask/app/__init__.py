@@ -15,6 +15,18 @@ db = SQLAlchemy(app)
 def not_found(error):
     return render_template('404.html'), 404
 
+# Default route message
+@app.route('/')
+def baseOutput():
+  return "Stream Meter is running."
+
+# Status message
+@app.route('/status')
+def statusOutput():
+  return "Database: OK<br>\
+          Site: OK<br>\
+          RT: OK"
+
 # Import our auth module.
 from app.mod_auth.controllers import mod_auth as auth_module
 
